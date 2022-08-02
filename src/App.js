@@ -7,10 +7,11 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" exact="true" element={<SignIn />} />
-        <Route path="/signup" exact="true" element={<SignUp />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </BrowserRouter>
   );
 };
 
 export default App;
+ 
