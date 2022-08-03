@@ -32,7 +32,7 @@ export default function reducer(state = initialState, action = {}) {
     case 'account/SIGNIN': {
       return { loginStatus: action.signInResult };
     }
-    case 'accout/SIGNOUT': {
+    case 'account/SIGNOUT': {
       console.log(action.signOutResult);
       return { loginStatus: action.signOutResult };
     }
