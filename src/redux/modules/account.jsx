@@ -1,22 +1,40 @@
-const CREATE = 'account/CREATE';
-const LOAD = 'account/LOAD';
+import { db } from '../../utils/firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
-export const createAccount = (account) => {
-  return {type: CREATE, account};
-}
-export const loadAccount = (id) => {
-  return {type: LOAD, id};
-}
+const SIGNUP = 'account/SIGNUP';
+const SIGNIN = 'account/SIGNIN';
+const SIGNOUT = 'account/SIGNOUT';
+
+export const signUpAction = (account) => {
+  return { type: SIGNUP, account };
+};
+export const signInAction = (signInResult) => {
+  return { type: SIGNIN, signInResult };
+};
+export const signOutAction = (signOutResult) => {
+  return { type: SIGNOUT, signOutResult };
+};
 
 const initialState = {
-  account: []
-}
+  loginStatus: false,
+};
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
-    case 'account/CREATE': {
-      console.log(action);
+    case 'account/SIGNUP': {
+      try {
+        addDoc(collection(db, 'account'), action.account);
+      } catch (error) {
+        console.error(`Error adding document: ${error}`);
+      }
       return state;
+    }
+    case 'account/SIGNIN': {
+      return { loginStatus: action.signInResult };
+    }
+    case 'accout/SIGNOUT': {
+      console.log(action.signOutResult);
+      return { loginStatus: action.signOutResult };
     }
     default:
       return state;

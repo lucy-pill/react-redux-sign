@@ -1,8 +1,9 @@
 #root {
-  background-color: antiquewhite;
+  background-image: url('../public/img/background.jpg');
+  background-size: cover;
   border-radius: 50px;
-  width: 100vw;
-  height: 100vh;
+  width: 390px;
+  height: 844px;
   display: flex;
   justify-content: center;
   align-items: center;

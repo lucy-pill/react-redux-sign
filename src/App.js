@@ -1,12 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import SignIn from './pages/signin/SignIn';
+import SignUp from './pages/signup/SignUp';
+import Main from './pages/main/Main';
+import { useSelector } from 'react-redux';
 
 const App = () => {
+  const data = useSelector(state => state.account.loginStatus);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact="true" element={<SignIn />} />
+        <Route path="/" exact="true" element={data? <Main /> : <SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </BrowserRouter>

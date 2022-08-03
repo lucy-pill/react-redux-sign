@@ -1,8 +1,10 @@
-[Packages]
+[Using packages]
 
+- firebase
 - react
 - react-router-dom
 - redux
 - react-redux
-- react-d
+- @reduxjs/toolkit
 - styled-components
+- react-password-strength-bar
