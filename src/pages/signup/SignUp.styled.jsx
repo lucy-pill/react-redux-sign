@@ -34,7 +34,6 @@ export const EmailInput = styled.input`
   height: 50px;
   border-radius: 10px;
   border: none;
-  padding: 0px;
   &::placeholder {
     padding: 5px;
   }
@@ -53,7 +52,6 @@ export const SignUpInput = styled.input`
   height: 50px;
   border-radius: 10px;
   border: none;
-  padding: 0px;
   &::placeholder {
     padding: 5px;
   }

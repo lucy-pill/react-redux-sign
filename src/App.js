@@ -5,12 +5,12 @@ import Main from './pages/main/Main';
 import { useSelector } from 'react-redux';
 
 const App = () => {
-  const data = useSelector(state => state.account.loginStatus);
+  const loginStatus = useSelector(state => state.account.loginStatus);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact="true" element={data? <Main /> : <SignIn />} />
+        <Route path="/" exact="true" element={loginStatus? <Main /> : <SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </BrowserRouter>

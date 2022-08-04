@@ -49,7 +49,7 @@ function SignIn() {
             alertPasswordSpanRef.current.style.display = 'block';
           } else {
             if (temp_account[0].password === password) {
-              dispatch(signInAction(true));
+              dispatch(signInAction({ userName: email, loginStatus: true }));
               navigate('/');
             } else {
               alertEmailSpanRef.current.style.display = 'none';

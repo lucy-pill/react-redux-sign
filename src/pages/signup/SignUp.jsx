@@ -45,13 +45,13 @@ function SignUp() {
     phone: phone,
   };
 
-  useEffect(()=> {
-    if(passwd !== passwdRe) {
+  useEffect(() => {
+    if (passwd !== passwdRe) {
       passwdReSpanRef.current.style.display = 'block';
     } else {
       passwdReSpanRef.current.style.display = 'none';
     }
-  },[passwd, passwdRe])
+  }, [passwd, passwdRe]);
 
   const emailModify = () => {
     emailRef.current.disabled = false;

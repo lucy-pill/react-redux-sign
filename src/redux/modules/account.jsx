@@ -8,14 +8,15 @@ const SIGNOUT = 'account/SIGNOUT';
 export const signUpAction = (account) => {
   return { type: SIGNUP, account };
 };
-export const signInAction = (signInResult) => {
-  return { type: SIGNIN, signInResult };
+export const signInAction = (signInInfo) => {
+  return { type: SIGNIN, signInInfo };
 };
 export const signOutAction = (signOutResult) => {
   return { type: SIGNOUT, signOutResult };
 };
 
 const initialState = {
+  userName: null,
   loginStatus: false,
 };
 
@@ -30,11 +31,14 @@ export default function reducer(state = initialState, action = {}) {
       return state;
     }
     case 'account/SIGNIN': {
-      return { loginStatus: action.signInResult };
+      console.log(action.signInInfo);
+      return {
+        userName: action.signInInfo.userName,
+        loginStatus: action.signInInfo.loginStatus,
+      };
     }
     case 'account/SIGNOUT': {
-      console.log(action.signOutResult);
-      return { loginStatus: action.signOutResult };
+      return { userName: null, loginStatus: action.signOutResult };
     }
     default:
       return state;
